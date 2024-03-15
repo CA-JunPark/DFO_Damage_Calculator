@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Damage Value Calculator</title>
+    <title>Dungeon & Fighter Online Damage Efficiency Calculator</title>
     <style>
         input {
             margin-bottom: 10px;
@@ -13,48 +13,60 @@
 </head>
 
 <body>
-    <h2>Damage Value Calculator</h2>
+    <h2>Dungeon & Fighter Online Damage Efficiency Calculator</h2>
+    <p>Each result % is equivalent to Skill Attack %</p>
+    <h3>Damage Value</h3>
+    <div class="">
+        <div>
+            <label for="x1">Add Damage Value:</label>
+            <input type="number" id="x1" value="0">
+        </div>
+        <div>
+            <label for="current1">Your Current Damage Value:</label>
+            <input type="number" id="current1" value="0">
+        </div>
+        <div id="result1"></div>
+    </div>
+    
+    <h3>Elemental Damage</h3>
+    <div> 
+        <div>
+            <label for="x2">Add Elemental Damage:</label>
+            <input type="number" id="x2" value="0">
+        </div>
+        <div>
+            <label for="current2">Your Current Elemental Damage:</label>
+            <input type="number" id="current2" value="0">
+        </div>
+        <div id="result2"></div>
+    </div>
+    
+    <h3>STR/INT</h3>
+    <div>
+        <div>
+            <label for="x3">Add STR/INT:</label>
+            <input type="number" id="x3" value="0">
+        </div>
+        <div>
+            <label for="current3">Your Current STR/INT:</label>
+            <input type="number" id="current3" value="0">
+        </div>
+        <div id="result3"></div>
+    </div>
 
+    <h3>Physical/Magical Attack</h3>
     <div>
-        <label for="x1">Enter value for x for dmgVal equation:</label>
-        <input type="number" id="x1" value="0">
+        <div>
+            <label for="x4">Add Physical/Magical Attack:</label>
+            <input type="number" id="x4" value="0">
+        </div>
+        <div>
+            <label for="current4">Your Current Physical/Magical Attack:</label>
+            <input type="number" id="current4" value="0">
+        </div>
+        <div id="result4"></div>
     </div>
-    <div>
-        <label for="current1">Enter value for current for dmgVal equation:</label>
-        <input type="number" id="current1" value="0">
-    </div>
-    <p id="result1"></p>
-
-    <div>
-        <label for="x2">Enter value for x for elem equation:</label>
-        <input type="number" id="x2" value="0">
-    </div>
-    <div>
-        <label for="current2">Enter value for current for elem equation:</label>
-        <input type="number" id="current2" value="0">
-    </div>
-    <p id="result2"></p>
-
-    <div>
-        <label for="x3">Enter value for x for stat equation:</label>
-        <input type="number" id="x3" value="0">
-    </div>
-    <div>
-        <label for="current3">Enter value for current for stat equation:</label>
-        <input type="number" id="current3" value="0">
-    </div>
-    <p id="result3"></p>
-
-    <div>
-        <label for="x4">Enter value for x for atk equation:</label>
-        <input type="number" id="x4" value="0">
-    </div>
-    <div>
-        <label for="current4">Enter value for current for atk equation:</label>
-        <input type="number" id="current4" value="0">
-    </div>
-    <p id="result4"></p>
-
+    
     <script>
         const calculateAndDisplay = () => {
             const calculateResult = (x, current, equation) => {
@@ -86,22 +98,22 @@
                 (x, current) => ((x + current) / current - 1) * 100
             );
 
-            document.getElementById('result1').innerText = `Result for dmgVal: ${dmgVal.toFixed(2)}%`;
-            document.getElementById('result2').innerText = `Result for elem: ${elem.toFixed(2)}%`;
-            document.getElementById('result3').innerText = `Result for stat: ${stat.toFixed(2)}%`;
-            document.getElementById('result4').innerText = `Result for atk: ${atk.toFixed(2)}%`;
+            document.getElementById('result1').innerText = `Damage Value Efficiency: ${dmgVal.toFixed(2)}%`;
+            document.getElementById('result2').innerText = `Elemental Damage Efficiency: ${elem.toFixed(2)}%`;
+            document.getElementById('result3').innerText = `STR/INT Efficiency: ${stat.toFixed(2)}%`;
+            document.getElementById('result4').innerText = `Physical/Magical Attack Efficiency: ${atk.toFixed(2)}%`;
         };
 
         // Set default values and calculate initial result
         window.onload = () => {
             document.getElementById('x1').value = 0;
-            document.getElementById('current1').value = 362142;
+            document.getElementById('current1').value = 0;
             document.getElementById('x2').value = 0;
-            document.getElementById('current2').value = 419;
+            document.getElementById('current2').value = 0;
             document.getElementById('x3').value = 0;
-            document.getElementById('current3').value = 4825+15297+280;
+            document.getElementById('current3').value = 0;
             document.getElementById('x4').value = 0;
-            document.getElementById('current4').value = 2756;
+            document.getElementById('current4').value = 0;
             calculateAndDisplay();
         };
 
